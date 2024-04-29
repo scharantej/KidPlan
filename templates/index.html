@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kids' Planner</title>
+</head>
+<body>
+<h1>Welcome to the Kids' Planner</h1>
+<p>This planner is designed to help you keep track of your child's activities and appointments.</p>
+<ul>
+{% for profile in profiles %}
+<li><a href="{{ url_for('profile', child_id=loop.index) }}">{{ profile['name'] }}</a></li>
+{% endfor %}
+</ul>
+<a href="{{ url_for('create_profile') }}">Create a New Profile</a>
+</body>
+</html>
+
+
