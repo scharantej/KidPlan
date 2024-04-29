@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ child['name'] }}'s Schedule</title>
+</head>
+<body>
+<h1>{{ child['name'] }}'s Schedule</h1>
+<p>Age: {{ child['age'] }}</p>
+<ul>
+{% for event in events %}
+{% if event['child_id'] == loop.index %}
+<li>{{ event['name'] }} - {{ event['date'] }} - {{ event['time'] }} - {{ event['category'] }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+<a href="{{ url_for('edit_profile', child_id=loop.index) }}">Edit Profile</a>
+<a href="{{ url_for('create_event', child_id=loop.index) }}">Create Event</a>
+</body>
+</html>
+
+
